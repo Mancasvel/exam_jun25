@@ -2,6 +2,7 @@ package exercise;
 
 import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
@@ -67,9 +68,25 @@ public class RevistasUniversitarias  extends Revista{
 	}
 
 
-	private Map<String, Integer> getTotalPaginasPorCategoria(Object object) {
-		// TODO Auto-generated method stub
-		return null;
+	private Map<String, Integer> getTotalPaginasPorCategoria(Integer anyo) {
+		Map<String, Integer> res = new HashMap<>();
+		
+		for(Revista revista: revistas) {
+			if(anyo == null || revista.getFechaPublicacion().getYear() > anyo) {
+				
+				List<Articulo> articulosRevista = revista.getArticulos();
+				
+				for(Articulo articulo: articulosRevista) {
+				
+					String categoria = articulo.categoria();
+					Integer paginas = articulo.paginas();
+					res.putIfAbsent(categoria, 0);
+					
+					res.put(categoria, res.get(categoria) + paginas);
+			}
+			}
+		}
+		return res;
 	}
 	
 	
