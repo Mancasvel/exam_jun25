@@ -1,4 +1,4 @@
-package data;
+package exercise;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -19,7 +19,6 @@ public class Revista implements Comparable<Revista>{
 	
 	public Revista(String numero, LocalDate fechaPublicacion, Integer ejemplares, Integer paginasFijas, Integer anuncios,
 			List<Articulo> articulos) {
-		super();
 		this.numero = numero;
 		Checkers.check("La fecha de publicacion debe ser un lunes", fechaPublicacion.getDayOfWeek().equals(DayOfWeek.MONDAY));
 		this.fechaPublicacion = fechaPublicacion;

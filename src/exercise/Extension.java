@@ -1,4 +1,4 @@
-package data;
+package exercise;
 
 public enum Extension {
 	

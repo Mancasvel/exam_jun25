@@ -1,4 +1,4 @@
-package data;
+package exercise;
 
 import utiles.Checkers;
 
